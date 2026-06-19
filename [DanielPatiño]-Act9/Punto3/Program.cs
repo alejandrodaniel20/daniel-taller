@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace Punto3
 {
+    //Se registran los nombres de 5 atletas y sus tiempos(en segundos) en una
+    //carrera de 100 metros.El programa debe cargar los datos en dos vectores
+    //paralelos, calcular y mostrar el promedio de los tiempos, mostrar el nombre del
+    //atleta con mejor y peor tiempo, y mostrar los nombres de quienes superaron el
+    //promedio.
     class Atletas
     {
         private string[] nombres;
@@ -16,13 +21,13 @@ namespace Punto3
             nombres = new string[5];
             tiempos = new double[5];
 
-            for (int f = 0; f < nombres.Length; f++)
+            for (int i = 0; i < nombres.Length; i++)
             {
                 Console.Write("Ingrese atleta: ");
-                nombres[f] = Console.ReadLine();
+                nombres[i] = Console.ReadLine();
 
                 Console.Write("Ingrese tiempo: ");
-                tiempos[f] = double.Parse(Console.ReadLine());
+                tiempos[i] = double.Parse(Console.ReadLine());
             }
         }
 
@@ -30,9 +35,9 @@ namespace Punto3
         {
             double suma = 0;
 
-            for (int f = 0; f < tiempos.Length; f++)
+            for (int i = 0; i < tiempos.Length; i++)
             {
-                suma += tiempos[f];
+                suma += tiempos[i];
             }
 
             double promedio = suma / tiempos.Length;
@@ -40,35 +45,35 @@ namespace Punto3
             int mejor = 0;
             int peor = 0;
 
-            for (int f = 1; f < tiempos.Length; f++)
+            for (int i = 1; i < tiempos.Length; i++)
             {
-                if (tiempos[f] < tiempos[mejor])
-                    mejor = f;
+                if (tiempos[i] < tiempos[mejor])
+                    mejor = i;
 
-                if (tiempos[f] > tiempos[peor])
-                    peor = f;
+                if (tiempos[i] > tiempos[peor])
+                    peor = i;
             }
-
+            Console.WriteLine("\n");
             Console.WriteLine("Promedio: " + promedio);
             Console.WriteLine("Mejor tiempo: " + nombres[mejor]);
             Console.WriteLine("Peor tiempo: " + nombres[peor]);
-
             Console.WriteLine("Superaron el promedio:");
 
-            for (int f = 0; f < tiempos.Length; f++)
+            for (int i = 0; i < tiempos.Length; i++)
             {
-                if (tiempos[f] < promedio)
+                if (tiempos[i] < promedio)
                 {
-                    Console.WriteLine(nombres[f]);
+                    Console.WriteLine(nombres[i]);
                 }
             }
         }
 
         static void Main(string[] args)
         {
-            Atletas a = new Atletas();
-            a.Cargar();
-            a.Procesar();
+            Atletas at = new Atletas();
+            at.Cargar();
+            at.Procesar();
+            Console.ReadKey();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +7,13 @@ using System.Threading.Tasks;
 
 namespace Punto4
 {
+    //Se realiza una evaluación a 6 docentes por parte de sus alumnos.Se registran
+    //sus nombres y puntajes promedio obtenidos (de 1 a 10).
+    //Cargar sus datos en vectores paralelos, mostrar docente con calificación más
+    //alta y más baja, ordenar los vectores de mayor a menor de acuerdo con la
+    //calificación y mostrar en pantalla la cantidad de docentes que aprobaron y
+    //desaprobaron(tomando como base que se aprueba con una nota mayor o igual
+    //a 6)
     class Docentes
     {
         private string[] nombres;
@@ -16,13 +24,13 @@ namespace Punto4
             nombres = new string[6];
             notas = new int[6];
 
-            for (int f = 0; f < nombres.Length; f++)
+            for (int i = 0; i < nombres.Length; i++)
             {
                 Console.Write("Ingrese docente: ");
-                nombres[f] = Console.ReadLine();
+                nombres[i] = Console.ReadLine();
 
                 Console.Write("Ingrese calificación: ");
-                notas[f] = int.Parse(Console.ReadLine());
+                notas[i] = int.Parse(Console.ReadLine());
             }
         }
 
@@ -31,33 +39,31 @@ namespace Punto4
             int mayor = 0;
             int menor = 0;
 
-            for (int f = 1; f < notas.Length; f++)
+            for (int i = 1; i < notas.Length; i++)
             {
-                if (notas[f] > notas[mayor])
-                    mayor = f;
+                if (notas[i] > notas[mayor])
+                    mayor = i;
 
-                if (notas[f] < notas[menor])
-                    menor = f;
+                if (notas[i] < notas[menor])
+                    menor = i;
             }
 
-            Console.WriteLine("Mayor calificación: " +
-                              nombres[mayor] + " - " + notas[mayor]);
+            Console.WriteLine("\nOrdenados:");
+            Console.WriteLine("Mayor calificación: " + nombres[mayor] + " = " + notas[mayor]);
+            Console.WriteLine("Menor calificación: " + nombres[menor] + " = " + notas[menor]);
 
-            Console.WriteLine("Menor calificación: " +
-                              nombres[menor] + " - " + notas[menor]);
-
-            for (int f = 0; f < notas.Length - 1; f++)
+            for (int i = 0; i < notas.Length - 1; i++)
             {
-                for (int k = f + 1; k < notas.Length; k++)
+                for (int k = i + 1; k < notas.Length; k++)
                 {
-                    if (notas[f] < notas[k])
+                    if (notas[i] < notas[k])
                     {
-                        int auxNota = notas[f];
-                        notas[f] = notas[k];
+                        int auxNota = notas[i];
+                        notas[i] = notas[k];
                         notas[k] = auxNota;
 
-                        string auxNom = nombres[f];
-                        nombres[f] = nombres[k];
+                        string auxNom = nombres[i];
+                        nombres[i] = nombres[k];
                         nombres[k] = auxNom;
                     }
                 }
@@ -65,17 +71,17 @@ namespace Punto4
 
             Console.WriteLine("\nOrdenados:");
 
-            for (int f = 0; f < nombres.Length; f++)
+            for (int i = 0; i < nombres.Length; i++)
             {
-                Console.WriteLine(nombres[f] + " - " + notas[f]);
+                Console.WriteLine(nombres[i] + " = " + notas[i]);
             }
 
             int aprobados = 0;
             int desaprobados = 0;
 
-            for (int f = 0; f < notas.Length; f++)
+            for (int i = 0; i < notas.Length; i++)
             {
-                if (notas[f] >= 6)
+                if (notas[i] >= 6)
                     aprobados++;
                 else
                     desaprobados++;
@@ -87,9 +93,10 @@ namespace Punto4
 
         static void Main(string[] args)
         {
-            Docentes d = new Docentes();
-            d.Cargar();
-            d.Procesar();
+            Docentes dt = new Docentes();
+            dt.Cargar();
+            dt.Procesar();
+            Console.ReadKey();
         }
     }
 }

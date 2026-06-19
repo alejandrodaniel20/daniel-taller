@@ -5,7 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Punto1
-{
+{   //Se desea desarrollar un programa que permita registrar los nombres y las
+    //calificaciones de 6 estudiantes. Luego de cargar los datos, se debe mostrar el
+    //nombre del estudiante con la nota más alta, junto con su nota. Al igual que el
+    //estudiante con la nota más baja. Informar si hay estudiantes con la misma nota
+    //máxima o mínima.
     class Estudiantes
     {
         private string[] nombres;
@@ -16,60 +20,58 @@ namespace Punto1
             nombres = new string[6];
             notas = new int[6];
 
-            for (int f = 0; f < nombres.Length; f++)
+            for (int i = 0; i < nombres.Length; i++)
             {
                 Console.Write("Ingrese nombre: ");
-                nombres[f] = Console.ReadLine();
+                nombres[i] = Console.ReadLine();
 
                 Console.Write("Ingrese nota: ");
-                notas[f] = int.Parse(Console.ReadLine());
+                notas[i] = int.Parse(Console.ReadLine());
             }
         }
 
-        public void Procesar()
+        public void MayoryMenorNota()
         {
-            int posMayor = 0;
-            int posMenor = 0;
+            int Mayor = 0;
+            int Menor = 0;
 
-            for (int f = 1; f < notas.Length; f++)
+            for (int i = 1; i < notas.Length; i++)
             {
-                if (notas[f] > notas[posMayor])
-                    posMayor = f;
+                if (notas[i] > notas[Mayor])
+                    Mayor = i;
 
-                if (notas[f] < notas[posMenor])
-                    posMenor = f;
+                if (notas[i] < notas[Menor])
+                    Menor = i;
+            }
+            Console.WriteLine("\n");
+            Console.WriteLine("Mayor nota: " + nombres[Mayor] + " = " + notas[Mayor]);
+            Console.WriteLine("Menor nota: " + nombres[Menor] + " = " + notas[Menor]);
+            Console.WriteLine("\n");
+            int mayor = 0;
+            int menor = 0;
+
+            for (int i = 0; i < notas.Length; i++)
+            {
+                if (notas[i] == notas[mayor])
+                    mayor++;
+
+                if (notas[i] == notas[menor])
+                    menor++;
             }
 
-            Console.WriteLine("Mayor nota: " + nombres[posMayor] +
-                              " - " + notas[posMayor]);
-
-            Console.WriteLine("Menor nota: " + nombres[posMenor] +
-                              " - " + notas[posMenor]);
-
-            int repMayor = 0;
-            int repMenor = 0;
-
-            for (int f = 0; f < notas.Length; f++)
-            {
-                if (notas[f] == notas[posMayor])
-                    repMayor++;
-
-                if (notas[f] == notas[posMenor])
-                    repMenor++;
-            }
-
-            if (repMayor > 1)
+            if (mayor > 1)
                 Console.WriteLine("La nota máxima se repite.");
 
-            if (repMenor > 1)
+            if (menor > 1)
                 Console.WriteLine("La nota mínima se repite.");
         }
 
         static void Main(string[] args)
         {
-            Estudiantes e = new Estudiantes();
-            e.Cargar();
-            e.Procesar();
+            Estudiantes es = new Estudiantes();
+            es.Cargar();
+            es.MayoryMenorNota();
+            Console.ReadKey();
         }
     }
 }

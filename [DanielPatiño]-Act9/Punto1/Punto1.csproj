@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FA911944-613F-404B-8D9E-51EBA3F39895}</ProjectGuid>
+    <ProjectGuid>{0F74BDD4-303D-4913-9AC9-43EABB088D72}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Punto1</RootNamespace>
     <AssemblyName>Punto1</AssemblyName>
@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="..\..\..\..\Documents\DanielPatiño\Program.cs">
+      <Link>Program.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
