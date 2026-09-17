@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -36,7 +38,7 @@ namespace punto_2
             Console.WriteLine("escribe el nombre de la nave");
             nombreNave = Console.ReadLine();
         }
-        public string devolverNombre()
+        public string devolverNombre ()
         {
             return nombreNave;
         }
@@ -57,7 +59,7 @@ namespace punto_2
             }
             for (int i = 0; i < naves.Length; i++)
             {
-                Console.WriteLine("escribe ahora la cantidad de bodegas que tendrá la nave" + naves[i].devolverNombre());
+                Console.WriteLine("escribe ahora la cantidad de bodegas que tendrá la nave " + naves[i].devolverNombre());
                 linea = Console.ReadLine();
                 matrizPesos[i] = new float[int.Parse(linea)];
             }

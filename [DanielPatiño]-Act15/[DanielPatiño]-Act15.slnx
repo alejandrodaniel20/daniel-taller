@@ -1,6 +1,6 @@
 <Solution>
-  <Project Path="Punto 1/Punto 1.csproj" />
-  <Project Path="Punto 2/Punto 2.csproj" />
-  <Project Path="Punto 3/Punto 3.csproj" />
-  <Project Path="Punto 4/Punto 4.csproj" />
+  <Project Path="Punto1/Punto1.csproj" />
+  <Project Path="Punto2/Punto2.csproj" />
+  <Project Path="Punto3/Punto3.csproj" />
+  <Project Path="Punto4/Punto4.csproj" />
 </Solution>
