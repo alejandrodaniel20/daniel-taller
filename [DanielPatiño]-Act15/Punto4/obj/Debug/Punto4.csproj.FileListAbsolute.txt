@@ -1,7 +1,0 @@
-C:\Users\alumno.ET26\Documents\reemplazo POO form\[DanielPatiño]-Act15\Punto4\bin\Debug\Punto4.exe.config
-C:\Users\alumno.ET26\Documents\reemplazo POO form\[DanielPatiño]-Act15\Punto4\bin\Debug\Punto4.exe
-C:\Users\alumno.ET26\Documents\reemplazo POO form\[DanielPatiño]-Act15\Punto4\bin\Debug\Punto4.pdb
-C:\Users\alumno.ET26\Documents\reemplazo POO form\[DanielPatiño]-Act15\Punto4\obj\Debug\Punto4.csproj.AssemblyReference.cache
-C:\Users\alumno.ET26\Documents\reemplazo POO form\[DanielPatiño]-Act15\Punto4\obj\Debug\Punto4.csproj.CoreCompileInputs.cache
-C:\Users\alumno.ET26\Documents\reemplazo POO form\[DanielPatiño]-Act15\Punto4\obj\Debug\Punto4.exe
-C:\Users\alumno.ET26\Documents\reemplazo POO form\[DanielPatiño]-Act15\Punto4\obj\Debug\Punto4.pdb
